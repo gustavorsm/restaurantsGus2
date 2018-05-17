@@ -17,6 +17,9 @@ public class City {
     @NotNull
     private String name;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<User> users;
+
     public String getName() {
         return name;
     }
@@ -33,4 +36,11 @@ public class City {
         this.id = id;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 }

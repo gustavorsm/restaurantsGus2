@@ -35,6 +35,9 @@ public class Restaurant {
     @ManyToMany(mappedBy = "restaurantList")
     private List<Dishes> dishesList;
 
+    @ManyToMany(mappedBy = "restaurantList")
+    private List<NivelPrecio> nivelPrecioList;
+
     @ManyToMany
     @JoinTable(name = "restaurant_category", joinColumns = @JoinColumn(name = "restaurant_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name="category_id", referencedColumnName = "id"))
@@ -113,5 +116,13 @@ public class Restaurant {
 
     public void setDishesList(List<Dishes> dishesList) {
         this.dishesList = dishesList;
+    }
+
+    public List<NivelPrecio> getNivelPrecioList() {
+        return nivelPrecioList;
+    }
+
+    public void setNivelPrecioList(List<NivelPrecio> nivelPrecioList) {
+        this.nivelPrecioList = nivelPrecioList;
     }
 }

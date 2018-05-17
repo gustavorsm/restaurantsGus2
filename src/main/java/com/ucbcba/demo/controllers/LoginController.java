@@ -17,7 +17,6 @@ import javax.validation.Valid;
 @Controller
 public class LoginController {
     private final UserService userService;
-
     private final SecurityService securityService;
 
     @Autowired

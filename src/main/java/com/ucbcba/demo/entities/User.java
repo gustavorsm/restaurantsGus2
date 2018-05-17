@@ -7,8 +7,6 @@ import java.util.Set;
 @Entity
 @Table(name = "user")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Size(min=1, message="This field cannot be blank")
     private String username;
@@ -24,6 +22,13 @@ public class User {
     @Size(min=1, message="This field cannot be blank")
     private String lastName;
 
+    @Size(min=1, message="This field cannot be blank")
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -88,5 +93,12 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 }
-                                        
