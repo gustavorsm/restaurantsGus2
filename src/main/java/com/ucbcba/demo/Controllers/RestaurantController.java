@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 //import java.util.List;
 
-@Controller
+@Controller //no te olvides
 public class RestaurantController {
 
     private RestaurantService restaurantService;
@@ -141,6 +141,4 @@ public class RestaurantController {
         photoService.deletePhoto(id);
         return "redirect:/admin/restaurant/edit/"+ photo.getRestaurant().getId();
     }
-
-
 }

@@ -32,6 +32,9 @@ public class Restaurant {
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.REMOVE)
     private List<Comment> comments;
 
+    @ManyToMany(mappedBy = "restaurantList")
+    private List<Dishes> dishesList;
+
     @ManyToMany
     @JoinTable(name = "restaurant_category", joinColumns = @JoinColumn(name = "restaurant_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name="category_id", referencedColumnName = "id"))
@@ -102,5 +105,13 @@ public class Restaurant {
 
     public void setPhoto(List<Photo> photos) {
         this.photo = photos;
+    }
+
+    public List<Dishes> getDishesList() {
+        return dishesList;
+    }
+
+    public void setDishesList(List<Dishes> dishesList) {
+        this.dishesList = dishesList;
     }
 }
